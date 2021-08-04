@@ -1,0 +1,280 @@
+
+/*IMPORT FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto:ital,wght@0,300;0,700;0,900;1,300&display=swap');
+
+// Calligraffitti Regular 400
+// Roboto Light 300
+// Roboto Light 300 italic
+// Roboto Bold 700
+// Robot Black 900
+
+
+
+/*VARIABLES*/
+
+
+
+$font_size: 16px;
+$body_padding_L: 30px;
+$border_radius: 8px;
+
+
+
+/*RESPONSIVE LAYOUT*/
+
+
+
+//makes 4 gallery columns into 2
+@media all and (max-width: 1400px) {
+    div.gallery_column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+  }
+
+//makes 2 gallery columns into 1
+//removes the navigation dot
+@media all and (max-width: 600px) {
+    div.gallery_column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+    div.navigation_dot {
+        display: none;
+    }
+}
+
+
+
+
+/*GENERAL STYLE*/
+
+
+
+body {
+    //margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    padding: 0px $body_padding_L * 5 0px $body_padding_L;
+    font-size: $font_size;
+    background-color: #fafafa;
+}
+h1 {
+    font-family: 'Calligraffitti', cursive;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-size: 60px;
+    margin-top: 35px;
+}
+h2 {
+    text-transform: uppercase;
+    font-size: $font_size + 3px;
+    margin-top: -15px;
+    padding-top: 0px;
+    margin-bottom: 15px;
+}
+h3 {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+p {
+    font-size: $font_size + 2px;
+}
+//specifies transition properties
+.trans {
+    transition: all 0.2s;
+    transition-timing-function: ease;
+    font-size: inherit;
+}
+//override header link styling
+#navigation_wrapper a {
+    color: inherit;
+    text-decoration: none;
+}
+#blog_dropdown_text a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+/*Header Style - navigation*/
+
+
+
+//wrapper for Home, About, Blog buttons
+#navigation_wrapper {
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    //text
+    font-size: inherit;
+}
+//style for all Home, About, Blog buttons
+.navigation_div {
+    padding: 10px;
+    margin: 0px;
+    //text
+    font-size: inherit;
+    //style
+    border-radius: $border_radius;
+    //transition
+    transition: all 0.2s;
+    transition-timing-function: ease;
+}
+.navigation_div:hover {
+    background-color: #cacaca;
+}
+//decreases padding and increases margin to simulate constriction
+.navigation_div:active {
+    background-color: #FDB515;
+    margin: 2px;
+    padding: 8px;
+    border-radius: $border_radius - 2px;
+}
+//onclick, opens/closes the blog_dropdown to select between assignments
+.blog_select {
+    background-color: #f0f0f0;
+}
+//#blog inherits properties from navigation_div
+#blog:hover{
+    background-color: #cacaca;
+}
+#blog:active {
+    margin: 2px;
+    padding: 8px;
+    background-color: #FDB515;
+    border-radius: $border_radius - 2px;
+}
+
+//style for buttons seperating Home, About, Blog buttons
+.navigation_dot {
+    width: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+/*Header Style - dropdown*/
+
+
+
+//dropdown background grey
+#blog_dropdown {
+    padding: 0px;
+    margin: 0px;
+    //style
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    //transition
+    transition: all 0.2s;
+    transition-timing-function: ease;
+    //javascript
+    margin-top: 10px;
+    height: 0px;
+}
+//dropdown, text wrapper
+//requires nested div because display:flex has no transition
+#blog_dropdown_text {
+    flex-wrap: wrap;
+    padding: 0px;
+    margin: 0px;
+    //transition
+    transition: all 0.2s;
+    transition-timing-function: ease;
+    //javascript
+    display: none;
+}
+//assignment text
+.assign {
+    margin: 6px;
+    padding: 14px;
+    //style
+    border-radius: 8px;
+    //transition
+    transition: all 0.2s;
+    transition-timing-function: ease;
+}
+.assign:hover {
+    background-color: #cacaca;
+}
+.assign:active {
+    background-color: #FDB515;
+    padding: 10px;
+    margin: 10px;
+}
+// div for the webpage that this is curently on
+// highlights the current webpage, overrides all class properties (including hover properties)
+#curr {
+    background-color: #ffdd92;
+}
+
+
+
+/*GALLERY STYLE*/
+
+
+
+//gallery wrapper
+.gallery {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    //padding: 0 4px;
+}
+//container for 1 column of gallery
+.gallery_column{
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+}
+//properties for gallery images
+.gallery_column img {
+    display: block;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #81818127;
+    transition: all 0.2s;
+    transition-timing-function: ease;
+}
+//expand image when hover
+.gallery_column img:hover {
+    width: 98%;
+    border: 1.2px solid #8181819f;
+}
+
+
+
+
+
+/*
+.content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: fit-content;
+}
+
+.quote{
+    font-size: $font_size + 2px;
+    font-style: italic;
+}
+
+.quote_speaker{
+    display: block;
+    padding-left: 15px/2;
+    padding-right: 15px/2;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
